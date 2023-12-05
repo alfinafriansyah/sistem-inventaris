@@ -60,7 +60,7 @@ public class SistemInventaris {
                 updateBarang();
                 break;
             case 3 :
-                System.out.println("Selamat datang di menu Input Barang Masuk!");
+                barangMasuk();
                 break;
             case 4 :
                 barangKeluar();
@@ -147,7 +147,8 @@ public class SistemInventaris {
         System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
 
         for(int i = 0; i < barang.length; i++){
-            System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+            System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+            System.out.println();
         }
     }
     public static void updateBarang(){
@@ -173,11 +174,11 @@ public class SistemInventaris {
             System.out.println("Nama Barang: " + barang[key]);
             System.out.println("Harga: " + harga[key]);
             System.out.println("Stok: " + stok[key]);
-            System.out.print("Masukkan Nama Barang: ");
+            System.out.print("Masukkan Nama Barang Baru: ");
             String namaBaru = sc.nextLine();
-            System.out.print("Masukkan Harga Barang: ");
+            System.out.print("Masukkan Harga Barang Baru: ");
             int hargaBaru = sc.nextInt();
-            System.out.print("Masukkan Stok Barang: ");
+            System.out.print("Masukkan Stok Barang Baru: ");
             int stokBaru = sc.nextInt();
             barang[key] = namaBaru;
             harga[key] = hargaBaru;
@@ -190,7 +191,44 @@ public class SistemInventaris {
         System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
 
         for(int i = 0; i < barang.length; i++){
-            System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+            System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+            System.out.println();
+        }
+    }
+    public static void barangMasuk(){
+        Scanner sc = new Scanner(System.in);
+        String[] barang = {"minyak", "beras", "susu", "roti", "snack"};
+        int[] harga = {15000, 10000, 5000, 2500, 2000};
+        int[] stok = {85, 40, 56, 112, 666};
+
+        System.out.print("Masukkan nama barang: ");
+        String cari = sc.nextLine();
+        int hasil = 0;
+        int key = 0;
+        for (int i = 0; i < barang.length; i++){
+            if (cari.equalsIgnoreCase(barang[i])){
+                hasil = 1;
+                key = i;
+                break;
+            }else {
+                continue;
+            }
+        }
+        if (hasil == 1){
+            System.out.println("Stok barang saat ini: " + stok[key]);
+            System.out.print("Masukkan Jumlah Barang Masuk: ");
+            int jumlah = sc.nextInt();
+            int stokBaru = stok[key] + jumlah;
+            stok[key] = stokBaru;
+            System.out.println("Input berhasil!");
+            System.out.println();
+        }
+        System.out.println("Data Barang sekarang: ");
+        System.out.println("------------------------------------------------------");
+        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
+
+        for(int i = 0; i < barang.length; i++){
+            System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
             System.out.println();
         }
     }
@@ -227,7 +265,7 @@ public class SistemInventaris {
         System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
 
         for(int i = 0; i < barang.length; i++){
-            System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+            System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
             System.out.println();
         }
     }

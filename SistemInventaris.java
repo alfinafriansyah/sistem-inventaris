@@ -148,7 +148,6 @@ public class SistemInventaris {
 
         for(int i = 0; i < barang.length; i++){
             System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
-            System.out.println();
         }
     }
     public static void updateBarang(){

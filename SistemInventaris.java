@@ -21,7 +21,7 @@ public class SistemInventaris {
         int pass = input.nextInt();
         int login = 0;
         for (int i = 0; i < username.length; i++){
-            if (user.equalsIgnoreCase(username[i]) && pass == password[i]){
+            if (user.equals(username[i]) && pass == password[i]){
                 login = 1;
             }else {
                 continue;

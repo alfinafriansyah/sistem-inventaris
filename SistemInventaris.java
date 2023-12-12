@@ -130,50 +130,6 @@ public class SistemInventaris {
         }
     }
 
-    public static void barangKeluar(){
-        System.out.print("Masukkan nama barang: ");
-        String cari = sc.next();
-        int hasil = 0;
-        int key = 0;
-        for (int i = 0; i < barang.length; i++){
-            if (cari.equalsIgnoreCase(barang[i])){
-                hasil = 1;
-                key = i;
-                break;
-            }else {
-                continue;
-            }
-        }
-        if (hasil == 1){
-            System.out.println("Stok barang saat ini: " + stok[key]);
-            System.out.print("Masukkan Jumlah Barang Keluar: ");
-            int jumlah = sc.nextInt();
-            if (jumlah > 0 && jumlah <= stok[key]){
-                stok[key] -= jumlah;
-                System.out.println(GREEN+"Input berhasil!"+RESET);
-                System.out.println();
-            }else{
-                System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
-                System.out.println();
-            }
-            System.out.println("Data Barang sekarang: ");
-            System.out.println("------------------------------------------------------");
-            System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
-
-            for(int i = 0; i < barang.length; i++){
-                if(barang[i] != null){
-                    System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
-                    System.out.println();
-                }
-            }
-        }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
-        char kembali = sc.next().charAt(0);
-        if (kembali == 'Y' || kembali == 'y'){
-            menu();
-        }
-    }
-
     public static void updateBarang(){
         System.out.print("Masukkan nama barang: ");
         String cari = sc.next();
@@ -270,32 +226,40 @@ public class SistemInventaris {
             menu();
         }
     }
-
-    public static void barangRusak(){
-        System.out.print("Masukkan nama barang: ");
-        String cari = sc.next();
-        int hasil = 0;
-        int key = 0;
-        for (int i = 0; i < barang.length; i++){
-            if (cari.equalsIgnoreCase(barang[i])){
-                hasil = 1;
-                key = i;
-                break;
-            }else {
-                continue;
+    
+    public static void barangKeluar(){
+        System.out.print("Jumlah Barang Keluar: ");
+        int jml = sc.nextInt();
+        for(int i = 0; i < jml; i++){
+            System.out.println("Barang ke-"+(i+1));
+            System.out.print("Masukkan nama barang: ");
+            String cari = sc.next();
+            int hasil = 0;
+            int key = 0;
+            for (int j = 0; j < barang.length; j++){
+                if (cari.equalsIgnoreCase(barang[j])){
+                    hasil = 1;
+                    key = j;
+                    break;
+                }else {
+                    continue;
+                }
             }
-        }
-        if (hasil == 1){
-            System.out.println("Stok barang saat ini: " + stok[key]);
-            System.out.print("Masukkan Jumlah Barang Rusak: ");
-            int jumlah = sc.nextInt();
-            if (jumlah > 0 && jumlah <= stok[key]){
-                stok[key] -= jumlah;
-                System.out.println(GREEN+"Input berhasil!"+RESET);
-                System.out.println();
-            }else{
-                System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
-                System.out.println();
+            if (hasil == 1){
+                System.out.println("Stok barang saat ini: " + stok[key]);
+                System.out.print("Masukkan Jumlah Barang Keluar: ");
+                int jumlah = sc.nextInt();
+                if (jumlah > 0){
+                    stok[key] -= jumlah;
+                    System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
+                    String tanggal = sc.next();
+                    laporKeluar[i] = "Tanggal: "+tanggal+"\nNama Barang: "+cari+"\nJumlah: "+jumlah;
+                    System.out.println(GREEN+"Input berhasil!"+RESET);
+                    System.out.println();
+                }else{
+                    System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
+                    System.out.println();
+                }
             }
         }
         System.out.println("Data Barang sekarang: ");
@@ -303,8 +267,62 @@ public class SistemInventaris {
         System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
 
         for(int i = 0; i < barang.length; i++){
-            System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
-            System.out.println();
+            if(barang[i] != null){
+                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.println();
+            }
+        }
+        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        char kembali = sc.next().charAt(0);
+        if (kembali == 'Y' || kembali == 'y'){
+            menu();
+        }
+    }
+
+    public static void barangRusak(){
+        System.out.print("Jumlah Barang Rusak: ");
+        int jml = sc.nextInt();
+        for(int i = 0; i < jml; i++){
+            System.out.println("Barang ke-"+(i+1));
+            System.out.print("Masukkan nama barang: ");
+            String cari = sc.next();
+            int hasil = 0;
+            int key = 0;
+            for (int j = 0; j < barang.length; j++){
+                if (cari.equalsIgnoreCase(barang[j])){
+                    hasil = 1;
+                    key = j;
+                    break;
+                }else {
+                    continue;
+                }
+            }
+            if (hasil == 1){
+                System.out.println("Stok barang saat ini: " + stok[key]);
+                System.out.print("Masukkan Jumlah Barang Rusak: ");
+                int jumlah = sc.nextInt();
+                if (jumlah > 0){
+                    stok[key] -= jumlah;
+                    System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
+                    String tanggal = sc.next();
+                    laporRusak[i] = "Tanggal: "+tanggal+"\nNama Barang: "+cari+"\nJumlah: "+jumlah;
+                    System.out.println(GREEN+"Input berhasil!"+RESET);
+                    System.out.println();
+                }else{
+                    System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
+                    System.out.println();
+                }
+            }
+        }
+        System.out.println("Data Barang sekarang: ");
+        System.out.println("------------------------------------------------------");
+        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
+
+        for(int i = 0; i < barang.length; i++){
+            if(barang[i] != null){
+                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.println();
+            }
         }
         System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
@@ -349,10 +367,30 @@ public class SistemInventaris {
     }
 
     public static void lapKeluar(){
-        
+        for(int i = 0; i < laporKeluar.length; i++){
+            if(laporKeluar[i] != null){
+                System.out.println("Laporan ke-"+(i+1));
+                System.out.println(laporKeluar[i]);
+            }
+        }
+        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        char kembali = sc.next().charAt(0);
+        if (kembali == 'Y' || kembali == 'y'){
+            menu();
+        }
     }
 
     public static void lapRusak(){
-
+        for(int i = 0; i < laporRusak.length; i++){
+            if(laporRusak[i] != null){
+                System.out.println("Laporan ke-"+(i+1));
+                System.out.println(laporRusak[i]);
+            }
+        }
+        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        char kembali = sc.next().charAt(0);
+        if (kembali == 'Y' || kembali == 'y'){
+            menu();
+        }
     }
 }

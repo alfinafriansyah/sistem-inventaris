@@ -11,6 +11,7 @@ public class SistemInventaris {
     static String laporMasuk[] = new String[100];
     static String laporKeluar[] = new String[100];
     static String laporRusak[] = new String[100];
+    static int jmlKeluar[] = new int[100];
     static String RED = "\u001b[31m";
     static String GREEN = "\u001b[32m";
     static String RESET = "\u001b[0m";
@@ -251,6 +252,7 @@ public class SistemInventaris {
                 int jumlah = sc.nextInt();
                 if (jumlah > 0){
                     stok[key] -= jumlah;
+                    jmlKeluar[i] += jumlah;
                     System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
                     String tanggal = sc.next();
                     laporKeluar[i] = "Tanggal: "+tanggal+"\nNama Barang: "+cari+"\nJumlah: "+jumlah;
@@ -347,6 +349,9 @@ public class SistemInventaris {
             case 3:
                 lapRusak();
                 break;
+            case 4:
+                lapSeringKeluar();
+                break;
             default:
                 break;
         }
@@ -392,5 +397,9 @@ public class SistemInventaris {
         if (kembali == 'Y' || kembali == 'y'){
             menu();
         }
+    }
+
+    public static void lapSeringKeluar(){
+        
     }
 }

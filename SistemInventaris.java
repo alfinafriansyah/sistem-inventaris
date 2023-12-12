@@ -9,6 +9,8 @@ public class SistemInventaris {
     static int[] harga = new int[100];
     static int[] stok = new int[100];
     static String laporMasuk[] = new String[100];
+    static String laporKeluar[] = new String[100];
+    static String laporRusak[] = new String[100];
     static String RED = "\u001b[31m";
     static String GREEN = "\u001b[32m";
     static String RESET = "\u001b[0m";
@@ -241,10 +243,9 @@ public class SistemInventaris {
                 int jumlah = sc.nextInt();
                 if (jumlah > 0){
                     stok[key] += jumlah;
-                    System.out.print("Masukkan Tanggal: ");
-                    String tanggal = sc.nextLine();
-                    sc.nextLine();
-                    laporMasuk[i] = "Tanggal: "+tanggal+"\nNama Barang: "+cari+"\n Jumlah: "+jumlah;
+                    System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
+                    String tanggal = sc.next();
+                    laporMasuk[i] = "Tanggal: "+tanggal+"\nNama Barang: "+cari+"\nJumlah: "+jumlah;
                     System.out.println(GREEN+"Input berhasil!"+RESET);
                     System.out.println();
                 }else{
@@ -334,7 +335,6 @@ public class SistemInventaris {
     }
 
     public static void lapMasuk(){
-        System.out.println("Tanggal\t\t\tNama Barang\tJumlah");
         for(int i = 0; i < laporMasuk.length; i++){
             if(laporMasuk[i] != null){
                 System.out.println("Laporan ke-"+(i+1));
@@ -349,7 +349,7 @@ public class SistemInventaris {
     }
 
     public static void lapKeluar(){
-
+        
     }
 
     public static void lapRusak(){

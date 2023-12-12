@@ -338,6 +338,7 @@ public class SistemInventaris {
         System.out.println("1. Barang Masuk");
         System.out.println("2. Barang Keluar");
         System.out.println("3. Barang Rusak");
+        System.out.println("4. Laporan Barang Sering Keluar");
         int angka = sc.nextInt();
         switch (angka) {
             case 1:
@@ -400,6 +401,14 @@ public class SistemInventaris {
     }
 
     public static void lapSeringKeluar(){
-        
+        int highest = 0;
+        int key = 0;
+        for(int i=0; i<jmlKeluar.length; i++){
+            if(jmlKeluar[i] > highest){
+                highest = jmlKeluar[i];
+                key = i; 
+            }
+        }
+        System.out.println("Barang yang paling sering keluar / sering habis adalah "+GREEN+barang[key]+RESET+" dengan jumlah: "+jmlKeluar[key]);
     }
 }

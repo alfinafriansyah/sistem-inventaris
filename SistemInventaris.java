@@ -166,8 +166,10 @@ public class SistemInventaris {
         System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
 
         for(int i = 0; i < barang.length; i++){
-            System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
-            System.out.println();
+            if(barang[i] != null){
+                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.println();
+            }
         }
         System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);

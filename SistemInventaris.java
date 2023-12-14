@@ -8,6 +8,7 @@ public class SistemInventaris {
     static String[] barang = new String[100];
     static int[] harga = new int[100];
     static int[] stok = new int[100];
+    static String[] satuan = new String[100];
     static String laporMasuk[] = new String[100];
     static String laporKeluar[] = new String[100];
     static String laporRusak[] = new String[100];
@@ -18,7 +19,8 @@ public class SistemInventaris {
     public static void main(String[] args) {
         barang[0] = "minyak"; barang[1] = "beras"; barang[2] = "susu"; barang[3] = "roti"; barang[4] = "snack";
         harga[0] = 15000; harga[1] = 10000; harga[2] = 5000; harga[3] = 2500; harga[4] = 2000;
-        stok[0] = 85; stok[1] = 40; stok[2] = 56; stok[3] = 112; stok[4] = 666;
+        stok[0] = 85; stok[1] = 40; stok[2] = 56; stok[3] = 5; stok[4] = 666;
+        satuan[0] = "liter"; satuan[1] = "karung"; satuan[2] = "botol"; satuan[3] = "pcs"; satuan[4] = "pcs";
         login();
     }
 
@@ -65,7 +67,9 @@ public class SistemInventaris {
         System.out.println("3. Input Barang Masuk");
         System.out.println("4. Input Barang Keluar (Terjual)");
         System.out.println("5. Input Barang Rusak");
-        System.out.println("6. Laporan");
+        System.out.println("6. Search");
+        System.out.println("7. Tampilkan Semua Data Barang");
+        System.out.println("8. Laporan");
         System.out.println("=================================================");
         int angka = sc.nextInt();
 
@@ -86,6 +90,12 @@ public class SistemInventaris {
             barangRusak();
             break;
             case 6 :
+            search();
+            break;
+            case 7 :
+            tampilData();
+            break;
+            case 8 :
             laporan();
             break;
 
@@ -119,7 +129,13 @@ public class SistemInventaris {
         System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                if(stok[i] <= 5){
+                    System.out.print(RED+stok[i]+RESET);
+                }
+                else{
+                    System.out.print(stok[i]);
+                }
                 System.out.println();
             }
         }
@@ -167,7 +183,13 @@ public class SistemInventaris {
 
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                if(stok[i] <= 5){
+                    System.out.print(RED+stok[i]+RESET);
+                }
+                else{
+                    System.out.print(stok[i]);
+                }
                 System.out.println();
             }
         }
@@ -219,7 +241,13 @@ public class SistemInventaris {
 
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                if(stok[i] <= 5){
+                    System.out.print(RED+stok[i]+RESET);
+                }
+                else{
+                    System.out.print(stok[i]);
+                }
                 System.out.println();
             }
         }
@@ -272,7 +300,13 @@ public class SistemInventaris {
 
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                if(stok[i] <= 5){
+                    System.out.print(RED+stok[i]+RESET);
+                }
+                else{
+                    System.out.print(stok[i]);
+                }
                 System.out.println();
             }
         }
@@ -324,7 +358,65 @@ public class SistemInventaris {
 
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t\t"+harga[i]+"\t\t\t"+stok[i]);
+                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                if(stok[i] <= 5){
+                    System.out.print(RED+stok[i]+RESET);
+                }
+                else{
+                    System.out.print(stok[i]);
+                }
+                System.out.println();
+            }
+        }
+        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        char kembali = sc.next().charAt(0);
+        if (kembali == 'Y' || kembali == 'y'){
+            menu();
+        }
+    }
+
+    public static void search(){
+        System.out.print("Masukkan nama barang yang dicari: ");
+        String cari = sc.next();
+        int hasil = 0;
+        int key = 0;
+        for (int i = 0; i < barang.length; i++){
+            if (cari.equalsIgnoreCase(barang[i])){
+                hasil = 1;
+                key = i;
+                break;
+            }else {
+                continue;
+            }
+        }
+        if(hasil == 1){
+            System.out.println("Barang yang dicari: ");
+            System.out.println("------------------------------------------------------");
+            System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
+            System.out.print(barang[key]+"\t\t\t\t"+harga[key]+"\t\t\t"+stok[key]);
+            System.out.println();
+        }else{
+            System.out.println(RED+"Barang tidak ditemukan!"+RESET);
+        }
+        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        char kembali = sc.next().charAt(0);
+        if (kembali == 'Y' || kembali == 'y'){
+            menu();
+        }
+    }
+
+    public static void tampilData(){
+        System.out.println("------------------------------------------------------");
+        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
+        for(int i = 0; i < barang.length; i++){
+            if(barang[i] != null){
+                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                if(stok[i] <= 5){
+                    System.out.print(RED+stok[i]+RESET);
+                }
+                else{
+                    System.out.print(stok[i]);
+                }
                 System.out.println();
             }
         }

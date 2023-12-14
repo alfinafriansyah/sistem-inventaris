@@ -1,7 +1,4 @@
-import java.util.Arrays;
 import java.util.Scanner;
-
-import javax.management.StringValueExp;
 
 public class SistemInventaris {
     static Scanner sc = new Scanner(System.in);
@@ -122,6 +119,8 @@ public class SistemInventaris {
             harga[i] = sc.nextInt();
             System.out.print("Masukkan Stok Barang: ");
             stok[i] = sc.nextInt();
+            System.out.print("Masukkan Satuan Barang: ");
+            satuan[i] = sc.next();
         }
 
         System.out.println("Data Barang yang Dimasukkan: ");
@@ -172,16 +171,20 @@ public class SistemInventaris {
             System.out.println("Nama Barang: " + barang[key]);
             System.out.println("Harga: " + harga[key]);
             System.out.println("Stok: " + stok[key]);
+            System.out.println("Satuan: " + satuan[key]);
             System.out.print("Masukkan Nama Barang Baru: ");
             String namaBaru = sc.next();
             System.out.print("Masukkan Harga Barang Baru: ");
             int hargaBaru = sc.nextInt();
             System.out.print("Masukkan Stok Barang Baru: ");
             int stokBaru = sc.nextInt();
+            System.out.print("Masukkan Satuan Barang Baru: ");
+            String satuanBaru = sc.next();
             barang[key] = namaBaru;
             harga[key] = hargaBaru;
             stok [key] = stokBaru;
-            System.out.println("Input berhasil!");
+            satuan[key] = satuanBaru;
+            System.out.println(GREEN+"Input berhasil!"+RESET);
             System.out.println();
         }else{
             System.out.println(RED+"Barang tidak ditemukan!"+RESET);
@@ -484,11 +487,13 @@ public class SistemInventaris {
     }
 
     public static void laporan(){
+        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><>");
         System.out.println("Pilih Menu: ");
         System.out.println("1. Barang Masuk");
         System.out.println("2. Barang Keluar");
         System.out.println("3. Barang Rusak");
         System.out.println("4. Laporan Barang Sering Keluar");
+        System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><>");
         int angka = sc.nextInt();
         switch (angka) {
             case 1:

@@ -125,22 +125,26 @@ public class SistemInventaris {
         }
 
         System.out.println("Data Barang yang Dimasukkan: ");
-        System.out.println("------------------------------------------------------");
-        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
+        System.out.println("=================================================================================================");
+        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+        System.out.println("=================================================================================================");
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
                 if(stok[i] <= 5){
                     System.out.print(RED+stok[i]+RESET);
                 }
                 else{
                     System.out.print(stok[i]);
                 }
+                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
                 System.out.println();
             }
         }
+        System.out.println("=================================================================================================");
+        System.out.println();
 
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -148,6 +152,9 @@ public class SistemInventaris {
     }
 
     public static void updateBarang(){
+        System.out.println("=================================================");
+        System.out.println("                Update Data Barang              ");
+        System.out.println("=================================================");
         System.out.print("Masukkan nama barang: ");
         String cari = sc.next();
         int hasil = 0;
@@ -176,24 +183,29 @@ public class SistemInventaris {
             stok [key] = stokBaru;
             System.out.println("Input berhasil!");
             System.out.println();
+        }else{
+            System.out.println(RED+"Barang tidak ditemukan!"+RESET);
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("------------------------------------------------------");
-        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
-
+        System.out.println("=================================================================================================");
+        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+        System.out.println("=================================================================================================");
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
                 if(stok[i] <= 5){
                     System.out.print(RED+stok[i]+RESET);
                 }
                 else{
                     System.out.print(stok[i]);
                 }
+                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
                 System.out.println();
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.println("=================================================================================================");
+        System.out.println();
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -201,6 +213,9 @@ public class SistemInventaris {
     }
 
     public static void barangMasuk(){
+        System.out.println("=================================================");
+        System.out.println("                Input Barang Masuk              ");
+        System.out.println("=================================================");
         System.out.print("Jumlah Barang Masuk: ");
         int jml = sc.nextInt();
         for(int i = 0; i < jml; i++){
@@ -233,25 +248,30 @@ public class SistemInventaris {
                     System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
                     System.out.println();
                 }
+            }else{
+                System.out.println(RED+"Barang tidak ditemukan!"+RESET);
             }
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("------------------------------------------------------");
-        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
-
+        System.out.println("=================================================================================================");
+        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+        System.out.println("=================================================================================================");
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
                 if(stok[i] <= 5){
                     System.out.print(RED+stok[i]+RESET);
                 }
                 else{
                     System.out.print(stok[i]);
                 }
+                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
                 System.out.println();
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.println("=================================================================================================");
+        System.out.println();
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -259,6 +279,9 @@ public class SistemInventaris {
     }
     
     public static void barangKeluar(){
+        System.out.println("=================================================");
+        System.out.println("                Input Barang Keluar              ");
+        System.out.println("=================================================");
         System.out.print("Jumlah Barang Keluar: ");
         int jml = sc.nextInt();
         for(int i = 0; i < jml; i++){
@@ -292,25 +315,30 @@ public class SistemInventaris {
                     System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
                     System.out.println();
                 }
+            }else{
+                System.out.println(RED+"Barang tidak ditemukan!"+RESET);
             }
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("------------------------------------------------------");
-        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
-
+        System.out.println("=================================================================================================");
+        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+        System.out.println("=================================================================================================");
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
                 if(stok[i] <= 5){
                     System.out.print(RED+stok[i]+RESET);
                 }
                 else{
                     System.out.print(stok[i]);
                 }
+                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
                 System.out.println();
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.println("=================================================================================================");
+        System.out.println();
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -318,6 +346,9 @@ public class SistemInventaris {
     }
 
     public static void barangRusak(){
+        System.out.println("=================================================");
+        System.out.println("                Input Barang Rusak              ");
+        System.out.println("=================================================");
         System.out.print("Jumlah Barang Rusak: ");
         int jml = sc.nextInt();
         for(int i = 0; i < jml; i++){
@@ -350,25 +381,30 @@ public class SistemInventaris {
                     System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
                     System.out.println();
                 }
+            }else{
+                System.out.println(RED+"Barang tidak ditemukan!"+RESET);
             }
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("------------------------------------------------------");
-        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
-
+        System.out.println("=================================================================================================");
+        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+        System.out.println("=================================================================================================");
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
                 if(stok[i] <= 5){
                     System.out.print(RED+stok[i]+RESET);
                 }
                 else{
                     System.out.print(stok[i]);
                 }
+                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
                 System.out.println();
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.println("=================================================================================================");
+        System.out.println();
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -376,6 +412,9 @@ public class SistemInventaris {
     }
 
     public static void search(){
+        System.out.println("=================================================");
+        System.out.println("                Search              ");
+        System.out.println("=================================================");
         System.out.print("Masukkan nama barang yang dicari: ");
         String cari = sc.next();
         int hasil = 0;
@@ -391,14 +430,24 @@ public class SistemInventaris {
         }
         if(hasil == 1){
             System.out.println("Barang yang dicari: ");
-            System.out.println("------------------------------------------------------");
-            System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
-            System.out.print(barang[key]+"\t\t\t\t"+harga[key]+"\t\t\t"+stok[key]);
+            System.out.println("=================================================================================================");
+            System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+            System.out.println("=================================================================================================");
+            System.out.print("|\t"+barang[key]+"\t\t|\t"+harga[key]+"\t\t|\t");
+            if(stok[key] <= 5){
+                System.out.print(RED+stok[key]+RESET);
+            }
+            else{
+                System.out.print(stok[key]);
+            }
+            System.out.print("\t\t|\t"+satuan[key]+"\t\t|");
             System.out.println();
+        System.out.println("=================================================================================================");
+        System.out.println();
         }else{
             System.out.println(RED+"Barang tidak ditemukan!"+RESET);
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -406,21 +455,28 @@ public class SistemInventaris {
     }
 
     public static void tampilData(){
-        System.out.println("------------------------------------------------------");
-        System.out.println("Nama Barang \t\tHarga \t\t\tStok \t");
+        System.out.println("=================================================");
+        System.out.println("               Tampilkan Data Barang              ");
+        System.out.println("=================================================");
+        System.out.println("=================================================================================================");
+        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+        System.out.println("=================================================================================================");
         for(int i = 0; i < barang.length; i++){
             if(barang[i] != null){
-                System.out.print(barang[i]+"\t\t\t"+harga[i]+"\t\t\t");
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
                 if(stok[i] <= 5){
                     System.out.print(RED+stok[i]+RESET);
                 }
                 else{
                     System.out.print(stok[i]);
                 }
+                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
                 System.out.println();
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.println("=================================================================================================");
+        System.out.println();
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -453,13 +509,18 @@ public class SistemInventaris {
     }
 
     public static void lapMasuk(){
+        System.out.println("=================================================");
+        System.out.println("                Laporan Barang Masuk              ");
+        System.out.println("=================================================");
         for(int i = 0; i < laporMasuk.length; i++){
             if(laporMasuk[i] != null){
                 System.out.println("Laporan ke-"+(i+1));
                 System.out.println(laporMasuk[i]);
+                System.out.println("-----------------------------------------------");
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.println();
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -467,13 +528,17 @@ public class SistemInventaris {
     }
 
     public static void lapKeluar(){
+        System.out.println("=================================================");
+        System.out.println("                Laporan Barang Keluar              ");
+        System.out.println("=================================================");
         for(int i = 0; i < laporKeluar.length; i++){
             if(laporKeluar[i] != null){
                 System.out.println("Laporan ke-"+(i+1));
                 System.out.println(laporKeluar[i]);
+                System.out.println("-----------------------------------------------");
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -481,13 +546,17 @@ public class SistemInventaris {
     }
 
     public static void lapRusak(){
+        System.out.println("=================================================");
+        System.out.println("                Laporan Barang Rusak              ");
+        System.out.println("=================================================");
         for(int i = 0; i < laporRusak.length; i++){
             if(laporRusak[i] != null){
                 System.out.println("Laporan ke-"+(i+1));
                 System.out.println(laporRusak[i]);
+                System.out.println("-----------------------------------------------");
             }
         }
-        System.out.print("Apakah anda ingin memimih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -495,6 +564,9 @@ public class SistemInventaris {
     }
 
     public static void lapSeringKeluar(){
+        System.out.println("=================================================");
+        System.out.println("           Laporan Barang Sering Keluar          ");
+        System.out.println("=================================================");
         int highest = 0;
         int key = 0;
         for(int i=0; i<jmlKeluar.length; i++){
@@ -504,5 +576,10 @@ public class SistemInventaris {
             }
         }
         System.out.println("Barang yang paling sering keluar / sering habis adalah "+GREEN+barang[key]+RESET+" dengan jumlah: "+jmlKeluar[key]);
+        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        char kembali = sc.next().charAt(0);
+        if (kembali == 'Y' || kembali == 'y'){
+            menu();
+        }
     }
 }

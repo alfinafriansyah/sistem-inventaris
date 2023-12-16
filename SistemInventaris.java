@@ -124,24 +124,7 @@ public class SistemInventaris {
         }
 
         System.out.println("Data Barang yang Dimasukkan: ");
-        System.out.println("=================================================================================================");
-        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
-        System.out.println("=================================================================================================");
-        for(int i = 0; i < barang.length; i++){
-            if(barang[i] != null){
-                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
-                if(stok[i] <= 5){
-                    System.out.print(RED+stok[i]+RESET);
-                }
-                else{
-                    System.out.print(stok[i]);
-                }
-                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
-                System.out.println();
-            }
-        }
-        System.out.println("=================================================================================================");
-        System.out.println();
+        printTabel();
 
         System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
@@ -190,24 +173,8 @@ public class SistemInventaris {
             System.out.println(RED+"Barang tidak ditemukan!"+RESET);
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("=================================================================================================");
-        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
-        System.out.println("=================================================================================================");
-        for(int i = 0; i < barang.length; i++){
-            if(barang[i] != null){
-                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
-                if(stok[i] <= 5){
-                    System.out.print(RED+stok[i]+RESET);
-                }
-                else{
-                    System.out.print(stok[i]);
-                }
-                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
-                System.out.println();
-            }
-        }
-        System.out.println("=================================================================================================");
-        System.out.println();
+        printTabel();
+
         System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
@@ -256,24 +223,8 @@ public class SistemInventaris {
             }
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("=================================================================================================");
-        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
-        System.out.println("=================================================================================================");
-        for(int i = 0; i < barang.length; i++){
-            if(barang[i] != null){
-                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
-                if(stok[i] <= 5){
-                    System.out.print(RED+stok[i]+RESET);
-                }
-                else{
-                    System.out.print(stok[i]);
-                }
-                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
-                System.out.println();
-            }
-        }
-        System.out.println("=================================================================================================");
-        System.out.println();
+        printTabel();
+
         System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
@@ -323,24 +274,8 @@ public class SistemInventaris {
             }
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("=================================================================================================");
-        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
-        System.out.println("=================================================================================================");
-        for(int i = 0; i < barang.length; i++){
-            if(barang[i] != null){
-                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
-                if(stok[i] <= 5){
-                    System.out.print(RED+stok[i]+RESET);
-                }
-                else{
-                    System.out.print(stok[i]);
-                }
-                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
-                System.out.println();
-            }
-        }
-        System.out.println("=================================================================================================");
-        System.out.println();
+        printTabel();
+
         System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
@@ -389,24 +324,8 @@ public class SistemInventaris {
             }
         }
         System.out.println("Data Barang sekarang: ");
-        System.out.println("=================================================================================================");
-        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
-        System.out.println("=================================================================================================");
-        for(int i = 0; i < barang.length; i++){
-            if(barang[i] != null){
-                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
-                if(stok[i] <= 5){
-                    System.out.print(RED+stok[i]+RESET);
-                }
-                else{
-                    System.out.print(stok[i]);
-                }
-                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
-                System.out.println();
-            }
-        }
-        System.out.println("=================================================================================================");
-        System.out.println();
+        printTabel();
+        
         System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
@@ -461,24 +380,8 @@ public class SistemInventaris {
         System.out.println("=================================================");
         System.out.println("               Tampilkan Data Barang              ");
         System.out.println("=================================================");
-        System.out.println("=================================================================================================");
-        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
-        System.out.println("=================================================================================================");
-        for(int i = 0; i < barang.length; i++){
-            if(barang[i] != null){
-                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
-                if(stok[i] <= 5){
-                    System.out.print(RED+stok[i]+RESET);
-                }
-                else{
-                    System.out.print(stok[i]);
-                }
-                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
-                System.out.println();
-            }
-        }
-        System.out.println("=================================================================================================");
-        System.out.println();
+        printTabel();
+
         System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
@@ -586,5 +489,26 @@ public class SistemInventaris {
         if (kembali == 'Y' || kembali == 'y'){
             menu();
         }
+    }
+
+    public static void printTabel(){
+        System.out.println("=================================================================================================");
+        System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
+        System.out.println("=================================================================================================");
+        for(int i = 0; i < barang.length; i++){
+            if(barang[i] != null){
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
+                if(stok[i] <= 5){
+                    System.out.print(RED+stok[i]+RESET);
+                }
+                else{
+                    System.out.print(stok[i]);
+                }
+                System.out.print("\t\t|\t"+satuan[i]+"\t\t|");
+                System.out.println();
+            }
+        }
+        System.out.println("=================================================================================================");
+        System.out.println();
     }
 }

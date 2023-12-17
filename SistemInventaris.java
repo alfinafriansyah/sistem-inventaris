@@ -111,16 +111,16 @@ public class SistemInventaris {
         for(int i = 5; i < (5 + n); i++){
             for(int j = 1; j <= n; j++){
                 no = j;
+                System.out.println("Barang ke-"+no);
+                System.out.print("Masukkan Nama Barang: ");
+                barang[i] = sc.next();
+                System.out.print("Masukkan Harga Barang: ");
+                harga[i] = sc.nextInt();
+                System.out.print("Masukkan Stok Barang: ");
+                stok[i] = sc.nextInt();
+                System.out.print("Masukkan Satuan Barang: ");
+                satuan[i] = sc.next();
             }
-            System.out.println("Barang ke-"+no);
-            System.out.print("Masukkan Nama Barang: ");
-            barang[i] = sc.next();
-            System.out.print("Masukkan Harga Barang: ");
-            harga[i] = sc.nextInt();
-            System.out.print("Masukkan Stok Barang: ");
-            stok[i] = sc.nextInt();
-            System.out.print("Masukkan Satuan Barang: ");
-            satuan[i] = sc.next();
         }
 
         System.out.println("Data Barang yang Dimasukkan: ");

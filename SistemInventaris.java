@@ -1,4 +1,6 @@
+import java.util.Locale;
 import java.util.Scanner;
+import java.text.NumberFormat;
 
 public class SistemInventaris {
     static Scanner sc = new Scanner(System.in);
@@ -68,7 +70,9 @@ public class SistemInventaris {
         System.out.println("7. Tampilkan Semua Data Barang");
         System.out.println("8. Laporan");
         System.out.println("=================================================");
+        System.out.print("Pilih Menu: ");
         int angka = sc.nextInt();
+        System.out.println();
 
         switch (angka) {
             case 1 :
@@ -97,7 +101,9 @@ public class SistemInventaris {
             break;
 
             default:
-                System.out.println("Maaf, menu yang anda pilih tidak valid ");
+                System.out.println(RED+"Maaf, menu yang anda pilih tidak valid!"+RESET);
+                System.out.println();
+                menu();
         }
     }
 
@@ -107,23 +113,34 @@ public class SistemInventaris {
         System.out.println("=================================================");
         System.out.print("Jumlah Barang : ");
         int n = sc.nextInt();
-        int no = 1;
+        int no = 0;
         for(int i = 5; i < (5 + n); i++){
             for(int j = 1; j <= n; j++){
                 no = j;
                 System.out.println("Barang ke-"+no);
                 System.out.print("Masukkan Nama Barang: ");
-                barang[i] = sc.next();
+                String brg = sc.nextLine();
+                sc.nextLine();
                 System.out.print("Masukkan Harga Barang: ");
-                harga[i] = sc.nextInt();
+                int hrg = sc.nextInt();
                 System.out.print("Masukkan Stok Barang: ");
-                stok[i] = sc.nextInt();
+                int stk = sc.nextInt();
                 System.out.print("Masukkan Satuan Barang: ");
-                satuan[i] = sc.next();
+                String stn = sc.nextLine();
+                sc.nextLine();
+                if(hrg > 0 && stk > 0){
+                    barang[i] = brg;
+                    harga[i] = hrg;
+                    stok[i] = stk;
+                    satuan[i] = stn;
+                    System.out.println(GREEN+"Input Berhasil!"+RESET);
+                }else{
+                    System.out.println(RED+"Harga dan Stok tidak bisa kurang dari 0!"+RESET);
+                }
             }
         }
 
-        System.out.println("Data Barang yang Dimasukkan: ");
+        System.out.println("Data Barang sekarang: ");
         printTabel();
 
         System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
@@ -163,12 +180,17 @@ public class SistemInventaris {
             int stokBaru = sc.nextInt();
             System.out.print("Masukkan Satuan Barang Baru: ");
             String satuanBaru = sc.next();
-            barang[key] = namaBaru;
-            harga[key] = hargaBaru;
-            stok [key] = stokBaru;
-            satuan[key] = satuanBaru;
-            System.out.println(GREEN+"Input berhasil!"+RESET);
-            System.out.println();
+            if(hargaBaru > 0 && stokBaru > 0){
+                barang[key] = namaBaru;
+                harga[key] = hargaBaru;
+                stok [key] = stokBaru;
+                satuan[key] = satuanBaru;
+                System.out.println(GREEN+"Input berhasil!"+RESET);
+                System.out.println();
+            }else{
+                System.out.println(RED+"Harga dan Stok tidak bisa kurang dari 0!"+RESET);
+                System.out.println();
+            }
         }else{
             System.out.println(RED+"Barang tidak ditemukan!"+RESET);
         }
@@ -257,7 +279,7 @@ public class SistemInventaris {
                 System.out.println("Stok barang saat ini: " + stok[key]);
                 System.out.print("Masukkan Jumlah Barang Keluar: ");
                 int jumlah = sc.nextInt();
-                if (jumlah > 0){
+                if (jumlah > 0 && jumlah < stok[key]){
                     stok[key] -= jumlah;
                     jmlKeluar[i] += jumlah;
                     System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
@@ -308,7 +330,7 @@ public class SistemInventaris {
                 System.out.println("Stok barang saat ini: " + stok[key]);
                 System.out.print("Masukkan Jumlah Barang Rusak: ");
                 int jumlah = sc.nextInt();
-                if (jumlah > 0){
+                if (jumlah > 0 && jumlah < stok[key]){
                     stok[key] -= jumlah;
                     System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
                     String tanggal = sc.next();
@@ -355,7 +377,9 @@ public class SistemInventaris {
             System.out.println("=================================================================================================");
             System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
             System.out.println("=================================================================================================");
-            System.out.print("|\t"+barang[key]+"\t\t|\t"+harga[key]+"\t\t|\t");
+            NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
+            String hrg = format.format(harga[key]);
+            System.out.print("|\t"+barang[key]+"\t\t|\t"+hrg+"\t|\t");
             if(stok[key] <= 5){
                 System.out.print(RED+stok[key]+RESET);
             }
@@ -397,7 +421,9 @@ public class SistemInventaris {
         System.out.println("3. Barang Rusak");
         System.out.println("4. Laporan Barang Sering Keluar");
         System.out.println("<><><><><><><><><><><><><><><><><><><><><><><><><>");
+        System.out.print("Pilih Menu: ");
         int angka = sc.nextInt();
+        System.out.println();
         switch (angka) {
             case 1:
                 lapMasuk();
@@ -496,8 +522,10 @@ public class SistemInventaris {
         System.out.println("|\tNama Barang\t|\tHarga\t\t|\tStok\t\t|\tSatuan\t\t|");
         System.out.println("=================================================================================================");
         for(int i = 0; i < barang.length; i++){
+            NumberFormat format = NumberFormat.getCurrencyInstance(new Locale("in", "ID"));
+            String hrg = format.format(harga[i]);
             if(barang[i] != null){
-                System.out.print("|\t"+barang[i]+"\t\t|\t"+harga[i]+"\t\t|\t");
+                System.out.print("|\t"+barang[i]+"\t\t|\t"+hrg+"\t|\t");
                 if(stok[i] <= 5){
                     System.out.print(RED+stok[i]+RESET);
                 }

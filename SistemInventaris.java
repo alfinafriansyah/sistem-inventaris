@@ -118,32 +118,28 @@ public class SistemInventaris {
         System.out.println("=================================================");
         System.out.print("Jumlah Barang : ");
         int n = sc.nextInt();
-        int no = 0;
+        int no = 1;
         if(n > 0){
-            for(int i = 5; i < (5 + n); i++){
-                for(int j = 1; j <= n; j++){
-                    no = j;
-                    System.out.println("Barang ke-"+no);
-                    System.out.print("Masukkan Nama Barang: ");
-                    sc.nextLine();
-                    String brg = sc.nextLine();
-                    System.out.print("Masukkan Harga Barang: ");
-                    int hrg = sc.nextInt();
-                    System.out.print("Masukkan Stok Barang: ");
-                    int stk = sc.nextInt();
-                    System.out.print("Masukkan Satuan Barang: ");
-                    sc.nextLine();
-                    String stn = sc.nextLine();
-                    if(hrg > 0 && stk > 0){
-                        barang[i] = brg;
-                        harga[i] = hrg;
-                        stok[i] = stk;
-                        satuan[i] = stn;
-                        System.out.println(GREEN+"Input Berhasil!"+RESET);
-                    }else{
-                        System.out.println(RED+"Harga dan Stok tidak bisa kurang dari 0!"+RESET);
-                    }
+            for(int i = 5; i < (5 + n); i++){               
+                System.out.println("Barang ke-"+no);
+                System.out.print("Masukkan Nama Barang: ");
+                String brg = sc.next();
+                System.out.print("Masukkan Harga Barang: ");
+                int hrg = sc.nextInt();
+                System.out.print("Masukkan Stok Barang: ");
+                int stk = sc.nextInt();
+                System.out.print("Masukkan Satuan Barang: ");
+                String stn = sc.next();
+                if(hrg > 0 && stk > 0){
+                    barang[i] = brg;
+                    harga[i] = hrg;
+                    stok[i] = stk;
+                    satuan[i] = stn;
+                    System.out.println(GREEN+"Input Berhasil!"+RESET);
+                }else{
+                    System.out.println(RED+"Harga dan Stok tidak bisa kurang dari 0!"+RESET);
                 }
+                no++;
             }
         }else{
             System.out.println(RED+"Angka yang anda masukkan tidak valid!"+RESET);
@@ -232,8 +228,7 @@ public class SistemInventaris {
             for(int i = 0; i < jml; i++){
                 System.out.println("Barang ke-"+(i+1));
                 System.out.print("Masukkan nama barang: ");
-                sc.nextLine();
-                String cari = sc.nextLine();
+                String cari = sc.next();
                 int hasil = 0;
                 int key = 0;
                 for (int j = 0; j < barang.length; j++){
@@ -290,8 +285,7 @@ public class SistemInventaris {
             for(int i = 0; i < jml; i++){
                 System.out.println("Barang ke-"+(i+1));
                 System.out.print("Masukkan nama barang: ");
-                sc.nextLine();
-                String cari = sc.nextLine();
+                String cari = sc.next();
                 int hasil = 0;
                 int key = 0;
                 for (int j = 0; j < barang.length; j++){
@@ -349,8 +343,7 @@ public class SistemInventaris {
             for(int i = 0; i < jml; i++){
                 System.out.println("Barang ke-"+(i+1));
                 System.out.print("Masukkan nama barang: ");
-                sc.nextLine();
-                String cari = sc.nextLine();
+                String cari = sc.next();
                 int hasil = 0;
                 int key = 0;
                 for (int j = 0; j < barang.length; j++){
@@ -405,8 +398,7 @@ public class SistemInventaris {
         System.out.println("                      Search                     ");
         System.out.println("=================================================");
         System.out.print("Masukkan nama barang yang dicari: ");
-        sc.nextLine();
-        String cari = sc.nextLine();
+        String cari = sc.next();
         int hasil = 0;
         int key = 0;
         for (int i = 0; i < barang.length; i++){

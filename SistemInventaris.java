@@ -153,7 +153,7 @@ public class SistemInventaris {
         System.out.println("Data Barang sekarang: ");
         printTabel();
 
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -188,7 +188,6 @@ public class SistemInventaris {
             System.out.println("Stok: " + stok[key]);
             System.out.println("Satuan: " + satuan[key]);
             System.out.print("Masukkan Nama Barang Baru: ");
-            sc.nextLine();
             String namaBaru = sc.nextLine();
             System.out.print("Masukkan Harga Barang Baru: ");
             int hargaBaru = sc.nextInt();
@@ -214,7 +213,7 @@ public class SistemInventaris {
         System.out.println("Data Barang sekarang: ");
         printTabel();
 
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -252,7 +251,7 @@ public class SistemInventaris {
                     int jumlah = sc.nextInt();
                     if (jumlah > 0){
                         stok[key] += jumlah;
-                        System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
+                        System.out.print("Masukkan Tanggal(dd/mm/yyyy): ");
                         String tanggal = sc.next();
                         laporMasuk[i] = "Nama Petugas: "+username[id_petugas]+"\nTanggal: "+tanggal+"\nNama Barang: "+cari+"\nJumlah: "+jumlah;
                         System.out.println(GREEN+"Input berhasil!"+RESET);
@@ -272,7 +271,7 @@ public class SistemInventaris {
         System.out.println("Data Barang sekarang: ");
         printTabel();
 
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -311,7 +310,7 @@ public class SistemInventaris {
                     if (jumlah > 0 && jumlah < stok[key]){
                         stok[key] -= jumlah;
                         jmlKeluar[i] += jumlah;
-                        System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
+                        System.out.print("Masukkan Tanggal(dd/mm/yyyy): ");
                         String tanggal = sc.next();
                         laporKeluar[i] = "Nama Petugas: "+username[id_petugas]+"\nTanggal: "+tanggal+"\nNama Barang: "+cari+"\nJumlah: "+jumlah;
                         System.out.println(GREEN+"Input berhasil!"+RESET);
@@ -331,7 +330,7 @@ public class SistemInventaris {
         System.out.println("Data Barang sekarang: ");
         printTabel();
 
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -369,7 +368,7 @@ public class SistemInventaris {
                     int jumlah = sc.nextInt();
                     if (jumlah > 0 && jumlah < stok[key]){
                         stok[key] -= jumlah;
-                        System.out.print("Masukkan Tanggal(dd/mm/yyy): ");
+                        System.out.print("Masukkan Tanggal(dd/mm/yyyy): ");
                         String tanggal = sc.next();
                         System.out.print("Catatan: ");
                         sc.nextLine();
@@ -392,7 +391,7 @@ public class SistemInventaris {
         System.out.println("Data Barang sekarang: ");
         printTabel();
         
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -440,7 +439,7 @@ public class SistemInventaris {
         }else{
             System.out.println(RED+"Barang tidak ditemukan!"+RESET);
         }
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -455,7 +454,7 @@ public class SistemInventaris {
         System.out.println("=================================================");
         printTabel();
 
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -505,7 +504,7 @@ public class SistemInventaris {
             }
         }
         System.out.println();
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -525,7 +524,7 @@ public class SistemInventaris {
                 System.out.println("-----------------------------------------------");
             }
         }
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -545,7 +544,7 @@ public class SistemInventaris {
                 System.out.println("-----------------------------------------------");
             }
         }
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
@@ -568,7 +567,7 @@ public class SistemInventaris {
         }
         System.out.println("Barang yang paling sering keluar / sering habis adalah "+GREEN+barang[key]+RESET+" dengan jumlah: "+jmlKeluar[key]);
         System.out.println();
-        System.out.print("Apakah anda ingin memimilih menu lain?(y/t) ");
+        System.out.print("Apakah anda ingin memilih menu lain?(y/t) ");
         char kembali = sc.next().charAt(0);
         if (kembali == 'Y' || kembali == 'y'){
             menu();
